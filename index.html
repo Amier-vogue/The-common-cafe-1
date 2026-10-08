@@ -1,0 +1,492 @@
+<!DOCTYPE html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Common Espresso Bar | Coffee · Community · Comfort</title>
+<meta name="description" content="Independent specialty café. Come for the coffee. Stay for the feeling.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&family=Playfair+Display:ital,wght@0,500;0,700;0,800;1,500&display=swap" rel="stylesheet">
+<style>
+:root{--cream:#F6F0E4;--beige:#EADFCB;--green:#1F3A2E;--ink:#1A1714;--terra:#B8552F;--muted:#6b6358;
+--serif:'Playfair Display',Georgia,serif;--sans:'DM Sans',system-ui,sans-serif;--pad:clamp(20px,5vw,72px)}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;scroll-padding-top:70px}
+body{font-family:var(--sans);background:var(--cream);color:var(--ink);line-height:1.65;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+:focus-visible{outline:2px solid var(--terra);outline-offset:3px}
+.label{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;font-weight:700;color:var(--terra)}
+h1,h2,h3{font-family:var(--serif);font-weight:700;line-height:1.05;letter-spacing:-.01em}
+h2{font-size:clamp(2.1rem,5vw,3.8rem)}
+section{padding:clamp(72px,10vw,140px) var(--pad)}
+.wrap{max-width:1240px;margin:0 auto}
+.btn{display:inline-block;padding:15px 28px;border-radius:999px;font-weight:700;font-size:.85rem;letter-spacing:.06em;transition:.25s;border:1.5px solid transparent;cursor:pointer}
+.btn.pri{background:var(--terra);color:#fff}.btn.pri:hover{background:var(--green)}
+.btn.sec{border-color:var(--ink)}.btn.sec:hover{background:var(--ink);color:var(--cream)}
+
+/* nav */
+header{position:sticky;top:0;z-index:50;background:rgba(246,240,228,.92);backdrop-filter:blur(10px);border-bottom:1px solid rgba(26,23,20,.1)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:70px;padding:0 var(--pad);max-width:1400px;margin:auto}
+.logo{font-family:var(--serif);font-weight:800;font-size:1.35rem;letter-spacing:.14em}
+nav ul{display:flex;gap:34px;list-style:none}
+nav a{font-size:.88rem;font-weight:500;position:relative;padding:4px 0}
+nav a::after{content:"";position:absolute;left:0;bottom:0;height:1.5px;width:0;background:var(--terra);transition:.25s}
+nav a:hover::after{width:100%}
+.nav .btn{padding:11px 22px;background:var(--green);color:var(--cream)}.nav .btn:hover{background:var(--terra)}
+.burger{display:none;background:none;border:0;width:40px;height:40px;cursor:pointer}
+.burger span{display:block;width:24px;height:2px;background:var(--ink);margin:6px auto;transition:.25s}
+
+/* hero */
+.hero{padding-top:clamp(40px,6vw,90px);padding-bottom:0;overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(28px,5vw,80px);align-items:end}
+.hero h1{font-size:clamp(3.2rem,8.4vw,7.6rem);margin:22px 0 28px;letter-spacing:-.025em}
+.hero h1 em{font-style:italic;font-weight:500;color:var(--green)}
+.hero p.lead{max-width:440px;font-size:1.1rem;color:var(--muted);margin-bottom:34px}
+.hero .cta{display:flex;gap:14px;flex-wrap:wrap}
+.hero-art{position:relative;aspect-ratio:4/5;border-radius:240px 240px 0 0;background:var(--green);overflow:hidden}
+.hero-art svg{position:absolute;inset:0;width:100%;height:100%}
+.badge{position:absolute;left:-18px;bottom:44px;background:var(--cream);padding:14px 20px;border-radius:4px;font-size:.78rem;font-weight:700;letter-spacing:.1em;box-shadow:0 10px 30px rgba(0,0,0,.18)}
+.hero-wrap{position:relative}
+.load>*{animation:rise .9s cubic-bezier(.2,.7,.2,1) both}
+.load>*:nth-child(2){animation-delay:.12s}.load>*:nth-child(3){animation-delay:.24s}.load>*:nth-child(4){animation-delay:.36s}
+@keyframes rise{from{opacity:0;transform:translateY(26px)}to{opacity:1;transform:none}}
+
+/* intro */
+.intro{text-align:center}
+.intro p.big{font-family:var(--serif);font-size:clamp(1.6rem,3.6vw,2.9rem);line-height:1.28;max-width:1000px;margin:22px auto 0;font-weight:500}
+.intro p.big span{color:var(--terra);font-style:italic}
+
+/* feature strip */
+.strip{background:var(--green);color:var(--cream);padding:0 var(--pad)}
+.strip .wrap{display:grid;grid-template-columns:repeat(4,1fr)}
+.strip div.f{padding:38px 26px;border-left:1px solid rgba(246,240,228,.18)}
+.strip div.f:first-child{border-left:0;padding-left:0}
+.strip h3{font-size:1.25rem;margin-bottom:6px}
+.strip p{font-size:.88rem;opacity:.75}
+
+/* menu */
+.menu{background:var(--beige)}
+.menu-head{display:flex;justify-content:space-between;align-items:end;gap:30px;flex-wrap:wrap;margin-bottom:48px}
+.tabs{display:flex;gap:8px;flex-wrap:wrap}
+.tabs button{font:inherit;font-size:.85rem;font-weight:700;padding:11px 22px;border-radius:999px;border:1.5px solid var(--ink);background:none;cursor:pointer;transition:.2s}
+.tabs button[aria-selected=true]{background:var(--ink);color:var(--cream)}
+.panel{display:none;columns:2;column-gap:clamp(30px,6vw,100px)}
+.panel.on{display:block;animation:rise .5s both}
+.item{break-inside:avoid;display:grid;grid-template-columns:1fr auto;gap:2px 16px;padding:22px 0;border-bottom:1px dashed rgba(26,23,20,.3)}
+.item h3{font-size:1.3rem}
+.item .pr{font-weight:700;color:var(--terra)}
+.item p{grid-column:1/-1;font-size:.9rem;color:var(--muted)}
+.menu-note{margin-top:36px;font-size:.85rem;color:var(--muted)}
+
+/* story */
+.story .wrap{display:grid;grid-template-columns:1fr 1fr;gap:clamp(36px,7vw,110px);align-items:center}
+.photo{position:relative;border-radius:6px;overflow:hidden;background:var(--beige)}
+.photo svg{display:block;width:100%;height:100%}
+.story .photo{aspect-ratio:4/5}
+.story h2{margin:18px 0 26px}
+.story p{color:var(--muted);margin-bottom:18px;max-width:520px}
+.sign{font-family:var(--serif);font-style:italic;font-size:1.3rem;color:var(--green);margin-top:26px}
+
+/* quote */
+.quote{background:var(--green);color:var(--cream);text-align:center}
+.quote blockquote{font-family:var(--serif);font-size:clamp(1.9rem,4.6vw,3.7rem);line-height:1.18;max-width:980px;margin:0 auto;font-weight:500}
+.quote blockquote::before{content:"\201C";display:block;font-size:6rem;line-height:.6;color:var(--terra);margin-bottom:10px}
+.quote cite{display:block;margin-top:34px;font-style:normal;font-size:.78rem;letter-spacing:.2em;text-transform:uppercase;opacity:.7}
+
+/* gallery */
+.gal-head{display:flex;justify-content:space-between;align-items:end;margin-bottom:44px;gap:20px;flex-wrap:wrap}
+.grid{display:grid;grid-template-columns:repeat(12,1fr);grid-auto-rows:clamp(110px,15vw,210px);gap:14px}
+.g{position:relative;border-radius:6px;overflow:hidden}
+.g svg{width:100%;height:100%;display:block;transition:transform .8s}
+.g:hover svg{transform:scale(1.05)}
+.g span{position:absolute;left:14px;bottom:12px;font-size:.7rem;letter-spacing:.14em;text-transform:uppercase;font-weight:700;color:#fff;text-shadow:0 1px 8px rgba(0,0,0,.4)}
+.g1{grid-column:span 5;grid-row:span 2}.g2{grid-column:span 4}.g3{grid-column:span 3}
+.g4{grid-column:span 3}.g5{grid-column:span 4}.g6{grid-column:span 5}
+
+/* reviews */
+.reviews{background:var(--beige)}
+.reviews .rows{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(24px,4vw,60px);margin-top:50px}
+.rev{border-top:2px solid var(--ink);padding-top:24px}
+.stars{color:var(--terra);letter-spacing:.2em;margin-bottom:14px}
+.rev p{font-family:var(--serif);font-size:1.25rem;line-height:1.4;margin-bottom:18px}
+.rev small{font-size:.8rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+
+/* visit */
+.visit .wrap{display:grid;grid-template-columns:1fr 1fr;gap:clamp(36px,6vw,90px)}
+.visit h2{margin:18px 0 30px}
+.hours{list-style:none;margin:26px 0 34px;max-width:380px}
+.hours li{display:flex;justify-content:space-between;padding:12px 0;border-bottom:1px solid rgba(26,23,20,.15);font-size:.95rem}
+.hours li b{font-weight:500}
+.visit address{font-style:normal;margin-bottom:6px}
+.visit .links a{display:block;color:var(--terra);font-weight:700;margin-top:6px}
+.map{border-radius:6px;min-height:380px;background:var(--beige);position:relative;overflow:hidden}
+.map svg{position:absolute;inset:0;width:100%;height:100%}
+.pin{position:absolute;left:52%;top:46%;transform:translate(-50%,-100%);background:var(--green);color:var(--cream);padding:10px 16px;border-radius:4px;font-size:.75rem;font-weight:700;letter-spacing:.14em;box-shadow:0 10px 26px rgba(0,0,0,.25)}
+.pin::after{content:"";position:absolute;left:50%;bottom:-6px;width:12px;height:12px;background:var(--green);transform:translateX(-50%) rotate(45deg)}
+
+/* instagram */
+.insta{padding-top:0}
+.insta .top{text-align:center;margin-bottom:36px}
+.insta h2{font-size:clamp(1.8rem,4vw,2.8rem);margin-top:12px}
+.ig{display:grid;grid-template-columns:repeat(6,1fr);gap:10px}
+.ig a{aspect-ratio:1;border-radius:4px;overflow:hidden;display:block}
+.ig svg{width:100%;height:100%;display:block;transition:.4s}.ig a:hover svg{opacity:.8;transform:scale(1.06)}
+
+/* footer */
+footer{background:var(--ink);color:var(--cream);padding:80px var(--pad) 36px}
+.foot{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:40px;max-width:1240px;margin:auto}
+footer .logo{font-size:1.6rem;display:block;margin-bottom:12px}
+footer p,footer a{font-size:.9rem;opacity:.75}footer a:hover{opacity:1;color:#e0825a}
+footer h4{font-size:.72rem;letter-spacing:.2em;text-transform:uppercase;margin-bottom:16px;color:#e0825a}
+footer li{list-style:none;margin-bottom:8px}
+.copy{max-width:1240px;margin:56px auto 0;padding-top:24px;border-top:1px solid rgba(246,240,228,.15);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px;font-size:.78rem;opacity:.55}
+
+@media(max-width:900px){
+ .burger{display:block}
+ nav{position:absolute;top:70px;left:0;right:0;background:var(--cream);padding:10px var(--pad) 28px;border-bottom:1px solid rgba(0,0,0,.1);display:none}
+ nav.open{display:block}nav ul{flex-direction:column;gap:6px}nav a{display:block;padding:12px 0;font-size:1.1rem}
+ .nav>.btn{display:none}
+ .hero .wrap,.story .wrap,.visit .wrap{grid-template-columns:1fr}
+ .hero-art{max-width:420px;margin:0 auto;width:100%}
+ .strip .wrap{grid-template-columns:1fr 1fr}.strip div.f{border-left:0;padding:26px 10px 26px 0}
+ .panel{columns:1}
+ .reviews .rows{grid-template-columns:1fr}
+ .ig{grid-template-columns:repeat(3,1fr)}
+ .foot{grid-template-columns:1fr 1fr}
+ .grid{grid-auto-rows:90px}.g1{grid-column:span 12;grid-row:span 3}.g2,.g3,.g4,.g5,.g6{grid-column:span 6;grid-row:span 2}
+}
+@media(prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important;scroll-behavior:auto!important}}
+
+/* premium upgrade */
+body::after{content:"";position:fixed;inset:0;pointer-events:none;z-index:99;opacity:.07;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='160' height='160'%3E%3Cfilter id='n'%3E%3CfeTurbulence baseFrequency='.8' numOctaves='2'/%3E%3C/filter%3E%3Crect width='160' height='160' filter='url(%23n)'/%3E%3C/svg%3E")}
+.hero{position:relative;min-height:calc(100vh - 70px);background:#0f2119;color:var(--cream);display:flex;align-items:center;padding:60px var(--pad)}
+.hero .scene{position:absolute;inset:0}.hero .scene svg{width:100%;height:100%;display:block}
+.hero .wrap{display:block;position:relative;z-index:2;width:100%}
+.hero .load{max-width:640px}
+.hero h1{font-size:clamp(3rem,7.4vw,6.6rem)}
+.hero h1 em{color:#e8956b}
+.hero p.lead{color:rgba(246,240,228,.82)}
+.hero .label{color:#e8956b}
+.hero .btn.sec{border-color:rgba(246,240,228,.6);color:var(--cream)}.hero .btn.sec:hover{background:var(--cream);color:var(--ink)}
+.lamp{animation:swing 6s ease-in-out infinite alternate}.lamp:nth-of-type(2){animation-duration:7.5s;animation-delay:-2s}.lamp:nth-of-type(3){animation-duration:5.5s;animation-delay:-4s}
+@keyframes swing{from{transform:rotate(-1.8deg)}to{transform:rotate(1.8deg)}}
+.steam{fill:none;stroke:#f6f0e4;stroke-width:5;stroke-linecap:round;opacity:0;animation:steam 4.5s ease-in-out infinite}
+.steam:nth-of-type(2){animation-delay:1.4s}.steam:nth-of-type(3){animation-delay:2.8s}
+@keyframes steam{0%{opacity:0;transform:translateY(18px)}40%{opacity:.55}100%{opacity:0;transform:translateY(-46px)}}
+.float{animation:float 5s ease-in-out infinite alternate}.float2{animation:float 3.6s ease-in-out infinite alternate-reverse}
+@keyframes float{from{transform:translateY(0)}to{transform:translateY(-12px)}}
+.spin{transform-origin:150px 190px;animation:spin 24s linear infinite}@keyframes spin{to{transform:rotate(360deg)}}
+.tw{animation:tw 2.4s ease-in-out infinite}.tw:nth-of-type(2n){animation-delay:1.1s}@keyframes tw{0%,100%{opacity:.15}50%{opacity:1}}
+.mwrap{display:grid;grid-template-columns:minmax(260px,.8fr) 1.6fr;gap:clamp(28px,5vw,80px);align-items:start}
+.mart{position:sticky;top:96px;aspect-ratio:4/5;border-radius:6px;overflow:hidden;background:var(--green);box-shadow:0 30px 60px -30px rgba(31,58,46,.6)}
+.art{display:none;width:100%;height:100%}.art.on{display:block}
+.panel{columns:1}
+.item{transition:padding .3s}.item:hover{padding-left:12px}.item:hover h3{color:var(--terra)}
+@media(max-width:900px){.mwrap{grid-template-columns:1fr}.mart{position:relative;top:0;aspect-ratio:16/10}.hero{min-height:88vh}}
+
+/* click-to-view modal */
+.g,.item{cursor:pointer}.g{cursor:zoom-in}
+.modal{position:fixed;inset:0;z-index:200;display:none;align-items:center;justify-content:center;padding:20px;background:rgba(12,26,20,.86);backdrop-filter:blur(8px)}
+.modal.open{display:flex;animation:fade .3s both}@keyframes fade{from{opacity:0}to{opacity:1}}
+.mbox{position:relative;display:grid;grid-template-columns:1.1fr 1fr;width:min(940px,100%);max-height:92vh;background:var(--cream);border-radius:8px;overflow:hidden;animation:pop .45s cubic-bezier(.2,.8,.2,1) both}
+@keyframes pop{from{opacity:0;transform:translateY(24px) scale(.97)}to{opacity:1;transform:none}}
+.mimg{background:var(--green);min-height:340px;aspect-ratio:1}.mimg svg,.mimg img{width:100%;height:100%;display:block;object-fit:cover}
+.mtxt{padding:clamp(26px,4vw,52px);display:flex;flex-direction:column;justify-content:center;overflow:auto}
+.mtxt h3{font-size:clamp(1.8rem,3.4vw,2.6rem);margin:12px 0 10px}
+.mtxt .mp{font-family:var(--serif);font-size:2rem;color:var(--terra);margin-bottom:14px}
+.mtxt p{color:var(--muted);margin-bottom:24px}
+.mtxt .btn{align-self:flex-start}
+.mx{position:absolute;top:12px;right:14px;z-index:3;width:42px;height:42px;border-radius:50%;border:0;background:var(--cream);font-size:1.6rem;line-height:1;cursor:pointer}
+@media(max-width:760px){.mbox{grid-template-columns:1fr;overflow:auto}.mimg{aspect-ratio:4/3;min-height:0}}
+</style>
+</head>
+<body>
+
+<header>
+ <div class="nav">
+  <a href="#home" class="logo">THE COMMON</a>
+  <nav id="nav" aria-label="Main">
+   <ul>
+    <li><a href="#home">Home</a></li>
+    <li><a href="#menu">Menu</a></li>
+    <li><a href="#story">Our Story</a></li>
+    <li><a href="#gallery">Gallery</a></li>
+    <li><a href="#visit">Visit</a></li>
+   </ul>
+  </nav>
+  <a href="#menu" class="btn">View our menu</a>
+  <button class="burger" id="burger" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button>
+ </div>
+</header>
+
+<main>
+<section class="hero" id="home">
+ <div class="scene" aria-hidden="true">
+  <!-- Café scene illustration. To use a real photo instead, replace this SVG with: <img src="images/hero.jpg" alt="" style="width:100%;height:100%;object-fit:cover"> -->
+  <svg viewBox="0 0 1440 800" preserveAspectRatio="xMidYMid slice">
+   <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#0c1a14"/><stop offset="1" stop-color="#1F3A2E"/></linearGradient>
+    <linearGradient id="wl" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#f6e2b6"/><stop offset="1" stop-color="#d8a05f"/></linearGradient>
+    <radialGradient id="gl"><stop offset="0" stop-color="#ffd58a" stop-opacity=".75"/><stop offset="1" stop-color="#ffd58a" stop-opacity="0"/></radialGradient>
+    <linearGradient id="fade" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#0c1a14" stop-opacity=".92"/><stop offset=".55" stop-color="#0c1a14" stop-opacity=".55"/><stop offset="1" stop-color="#0c1a14" stop-opacity="0"/></linearGradient>
+   </defs>
+   <rect width="1440" height="800" fill="url(#bg)"/>
+   <circle cx="1090" cy="420" r="420" fill="url(#gl)"/>
+   <path d="M900 690V340a190 190 0 0 1 380 0v350z" fill="url(#wl)"/>
+   <path d="M1090 150v540M900 400h380M900 540h380" stroke="#1b2f25" stroke-width="10" fill="none"/>
+   <path d="M900 690V340a190 190 0 0 1 380 0v350" stroke="#1b2f25" stroke-width="16" fill="none"/>
+   <g fill="#2f5a43"><ellipse cx="860" cy="640" rx="46" ry="90" transform="rotate(-12 860 640)"/><ellipse cx="905" cy="620" rx="34" ry="80" transform="rotate(14 905 620)"/><ellipse cx="1330" cy="650" rx="40" ry="84" transform="rotate(10 1330 650)"/></g>
+   <g class="lamp" style="transform-origin:760px 0"><path d="M760 0v190" stroke="#000" stroke-width="3"/><circle cx="760" cy="215" r="70" fill="url(#gl)"/><path d="M724 215a36 30 0 0 1 72 0z" fill="#B8552F"/><circle cx="760" cy="222" r="10" fill="#ffe6b0"/></g>
+   <g class="lamp" style="transform-origin:1010px 0"><path d="M1010 0v110" stroke="#000" stroke-width="3"/><circle cx="1010" cy="135" r="70" fill="url(#gl)"/><path d="M974 135a36 30 0 0 1 72 0z" fill="#F6F0E4"/><circle cx="1010" cy="142" r="10" fill="#ffe6b0"/></g>
+   <g class="lamp" style="transform-origin:1250px 0"><path d="M1250 0v160" stroke="#000" stroke-width="3"/><circle cx="1250" cy="185" r="70" fill="url(#gl)"/><path d="M1214 185a36 30 0 0 1 72 0z" fill="#B8552F"/><circle cx="1250" cy="192" r="10" fill="#ffe6b0"/></g>
+   <rect y="690" width="1440" height="110" fill="#2a1c14"/><rect y="684" width="1440" height="14" fill="#4a3324"/>
+   <g fill="#14231b"><rect x="1020" y="560" width="150" height="124" rx="8"/><rect x="1035" y="540" width="120" height="24" rx="6"/></g>
+   <g fill="#B8552F"><circle cx="1050" cy="600" r="8"/><circle cx="1140" cy="600" r="8"/></g>
+   <rect x="1060" y="640" width="70" height="8" fill="#F6F0E4" opacity=".7"/>
+   <g><path d="M1215 640h54l-8 44h-38z" fill="#F6F0E4"/><path d="M1269 650c18 0 18 24 0 24" stroke="#F6F0E4" stroke-width="6" fill="none"/>
+   <path class="steam" d="M1230 630q-10-20 0-40t0-40"/><path class="steam" d="M1242 630q-10-20 0-40t0-40"/><path class="steam" d="M1254 630q-10-20 0-40t0-40"/></g>
+   <g fill="#F6F0E4" opacity=".16"><rect x="80" y="240" width="520" height="8"/><rect x="80" y="400" width="520" height="8"/><g><rect x="110" y="205" width="34" height="35" rx="4"/><rect x="170" y="205" width="34" height="35" rx="4"/><rect x="330" y="360" width="34" height="40" rx="4"/><rect x="480" y="205" width="34" height="35" rx="4"/></g></g>
+   <rect width="1440" height="800" fill="url(#fade)"/>
+  </svg>
+ </div>
+ <div class="wrap">
+  <div class="load">
+   <p class="label">Coffee · Community · Comfort</p>
+   <h1>Come for the coffee. <em>Stay for the feeling.</em></h1>
+   <p class="lead">The Common Espresso Bar is an independent neighbourhood café: carefully roasted coffee, pastries baked each morning, and a table with your name on it.</p>
+   <div class="cta"><a href="#menu" class="btn pri">View our menu</a><a href="#visit" class="btn sec">Find us</a></div>
+  </div>
+ </div>
+</section>
+
+<section class="intro">
+ <div class="wrap">
+  <p class="label">Welcome</p>
+  <p class="big">A café should feel like <span>somewhere you belong</span>. We pour honest, beautifully made coffee, bake slowly, and leave the chairs a little too comfortable.</p>
+ </div>
+</section>
+
+<div class="strip">
+ <div class="wrap">
+  <div class="f"><h3>Single-origin beans</h3><p>Roasted in small batches by partners we know by name.</p></div>
+  <div class="f"><h3>Baked daily</h3><p>Pastries and sourdough out of the oven by 7.30am.</p></div>
+  <div class="f"><h3>Dog and laptop friendly</h3><p>Plug in, settle down, or simply stay a while.</p></div>
+  <div class="f"><h3>Oat, soy &amp; almond</h3><p>Plant-based milks at no extra charge.</p></div>
+ </div>
+</div>
+
+<section class="menu" id="menu">
+ <div class="wrap">
+  <div class="menu-head">
+   <div><p class="label">The menu</p><h2 style="margin-top:14px">Made slowly, served warm</h2></div>
+   <div class="tabs" role="tablist">
+    <button role="tab" aria-selected="true" data-t="c">Coffee</button>
+    <button role="tab" aria-selected="false" data-t="b">Bakery</button>
+    <button role="tab" aria-selected="false" data-t="k">Brunch</button>
+    <button role="tab" aria-selected="false" data-t="n">Cold Drinks</button>
+   </div>
+  </div>
+  <div class="mwrap"><div class="mart" role="img" aria-label="Animated menu illustration">
+   <svg class="art on" data-t="c" viewBox="0 0 300 375"><rect width="300" height="375" fill="#1F3A2E"/><circle cx="150" cy="200" r="120" fill="#2c4d3d"/><ellipse cx="150" cy="288" rx="92" ry="16" fill="#F6F0E4"/><path d="M82 190h136v40c0 38-28 62-68 62s-68-24-68-62z" fill="#F6F0E4"/><path d="M218 205c34 0 34 44 0 44" stroke="#F6F0E4" stroke-width="12" fill="none"/><ellipse cx="150" cy="190" rx="68" ry="13" fill="#B8552F"/><ellipse cx="150" cy="190" rx="52" ry="9" fill="#7a3b22"/><path class="steam" d="M120 170q-14-24 0-48t0-44"/><path class="steam" d="M150 170q-14-24 0-48t0-44"/><path class="steam" d="M180 170q-14-24 0-48t0-44"/><g fill="#B8552F"><ellipse class="float" cx="52" cy="300" rx="12" ry="8"/><ellipse class="float2" cx="250" cy="110" rx="10" ry="7"/><ellipse class="float2" cx="40" cy="120" rx="9" ry="6"/></g></svg>
+   <svg class="art" data-t="b" viewBox="0 0 300 375"><rect width="300" height="375" fill="#B8552F"/><circle cx="150" cy="190" r="115" fill="#c9683f"/><g class="float"><path d="M50 215c0-70 45-100 100-100s100 30 100 100c-28-18-52-14-100-14s-72-4-100 14z" fill="#E4A85C"/><path d="M110 125l-14 78M150 115v84M190 125l14 78" stroke="#b8782f" stroke-width="7" stroke-linecap="round"/><path d="M60 205c30-12 60-8 90-8s60-4 90 8c-10 20-40 26-90 26s-80-6-90-26z" fill="#d89443"/></g><ellipse cx="150" cy="320" rx="70" ry="9" fill="#000" opacity=".18"/><g fill="#F6F0E4"><path class="tw" d="M60 90l5 12 12 5-12 5-5 12-5-12-12-5 12-5z"/><path class="tw" d="M240 80l4 9 9 4-9 4-4 9-4-9-9-4 9-4z"/><path class="tw" d="M245 270l4 9 9 4-9 4-4 9-4-9-9-4 9-4z"/></g></svg>
+   <svg class="art" data-t="k" viewBox="0 0 300 375"><rect width="300" height="375" fill="#2c4d3d"/><circle cx="150" cy="195" r="125" fill="#F6F0E4"/><circle cx="150" cy="195" r="98" fill="#EADFCB"/><rect x="70" y="230" width="90" height="60" rx="10" fill="#d89443" transform="rotate(-10 115 260)"/><path d="M118 135c-34 2-44 38-24 56 18 16 52 8 66-8 16-18 6-52-42-48z" fill="#fff"/><circle class="float2" cx="125" cy="165" r="19" fill="#F2A93B"/><g fill="#4f7d3a"><ellipse cx="195" cy="205" rx="22" ry="9" transform="rotate(-30 195 205)"/><ellipse cx="215" cy="225" rx="16" ry="7" transform="rotate(20 215 225)"/><ellipse cx="190" cy="235" rx="14" ry="6"/></g><circle cx="205" cy="160" r="7" fill="#B8552F"/><circle cx="222" cy="172" r="6" fill="#B8552F"/><path class="steam" d="M150 95q-12-22 0-42t0-36" style="stroke:#F6F0E4"/></svg>
+   <svg class="art" data-t="n" viewBox="0 0 300 375"><rect width="300" height="375" fill="#2c4d3d"/><circle cx="150" cy="195" r="125" fill="#1F3A2E"/><g class="float"><path d="M104 150h92l-9 150c-1 10-8 16-18 16h-38c-10 0-17-6-18-16z" fill="#7a3b22"/><path d="M104 150h92l-3 48h-86z" fill="#F6F0E4"/><path d="M100 120h100l-6 30h-88z" fill="#F6F0E4" opacity=".18"/><path d="M95 105h110l-14 200c-1 12-10 20-22 20h-38c-12 0-21-8-22-20z" fill="none" stroke="#F6F0E4" stroke-width="5" stroke-linejoin="round"/><g fill="#F6F0E4" opacity=".85"><rect x="115" y="170" width="34" height="34" rx="6" transform="rotate(-14 132 187)"/><rect x="152" y="196" width="32" height="32" rx="6" transform="rotate(12 168 212)"/><rect x="122" y="234" width="30" height="30" rx="6" transform="rotate(8 137 249)"/></g><rect x="168" y="40" width="10" height="190" rx="5" fill="#B8552F" transform="rotate(10 173 135)"/><circle cx="106" cy="108" r="26" fill="#E8C14A"/><circle cx="106" cy="108" r="19" fill="#F3DC7A"/><path d="M106 108v-19M106 108l16 10M106 108l-16 10M106 108l16-10M106 108l-16-10" stroke="#E8C14A" stroke-width="3"/></g><ellipse cx="150" cy="342" rx="62" ry="8" fill="#000" opacity=".2"/><g fill="#F6F0E4"><circle class="tw" cx="55" cy="120" r="5"/><circle class="tw" cx="248" cy="170" r="6"/><circle class="tw" cx="235" cy="285" r="4"/><circle class="tw" cx="62" cy="260" r="4"/></g></svg>
+  </div><div>
+  <div class="panel on" id="c" role="tabpanel">
+   <div class="item"><h3>Espresso</h3><span class="pr">£2.80</span><p>Double shot of our house blend. Dark chocolate, hazelnut, orange peel.</p></div>
+   <div class="item"><h3>Flat White</h3><span class="pr">£3.60</span><p>Velvety microfoam over a double ristretto.</p></div>
+   <div class="item"><h3>Cortado</h3><span class="pr">£3.40</span><p>Equal parts espresso and steamed milk. Small and strong.</p></div>
+   <div class="item"><h3>Cappuccino</h3><span class="pr">£3.70</span><p>Thick foam, dusted with cacao.</p></div>
+   <div class="item"><h3>Filter of the Week</h3><span class="pr">£3.80</span><p>A rotating single origin, brewed by hand. Ask what is on.</p></div>
+   <div class="item"><h3>Common Latte</h3><span class="pr">£4.40</span><p>Espresso, steamed milk, brown sugar and orange zest.</p></div>
+   <div class="item"><h3>Hot Chocolate</h3><span class="pr">£4.00</span><p>Melted 70% dark chocolate and whole milk.</p></div>
+   <div class="item"><h3>Iced Americano</h3><span class="pr">£3.50</span><p>Double espresso over ice. Add tonic for £0.50.</p></div>
+  </div>
+  <div class="panel" id="b" role="tabpanel">
+   <div class="item"><h3>Butter Croissant</h3><span class="pr">£3.20</span><p>Laminated over three days. Shatteringly crisp.</p></div>
+   <div class="item"><h3>Cardamom Bun</h3><span class="pr">£3.80</span><p>Soft, sticky, lightly spiced and pearl-sugared.</p></div>
+   <div class="item"><h3>Almond Croissant</h3><span class="pr">£3.90</span><p>Twice-baked with frangipane and toasted flakes.</p></div>
+   <div class="item"><h3>Sea Salt Brownie</h3><span class="pr">£3.50</span><p>Dense, fudgy, flaky salt on top.</p></div>
+   <div class="item"><h3>Lemon Polenta Cake</h3><span class="pr">£3.70</span><p>Naturally gluten free, moist and bright.</p></div>
+   <div class="item"><h3>Seasonal Tart</h3><span class="pr">£4.20</span><p>Whatever is best at the market this week.</p></div>
+  </div>
+  <div class="panel" id="k" role="tabpanel">
+   <div class="item"><h3>Avocado on Sourdough</h3><span class="pr">£9.50</span><p>Chilli, lime, pumpkin seeds. Add a poached egg for £1.80.</p></div>
+   <div class="item"><h3>The Common Breakfast</h3><span class="pr">£12.50</span><p>Eggs your way, bacon, roast tomato, sourdough, butter.</p></div>
+   <div class="item"><h3>Whipped Ricotta Toast</h3><span class="pr">£8.90</span><p>Honey, thyme, toasted hazelnuts.</p></div>
+   <div class="item"><h3>Halloumi &amp; Harissa Wrap</h3><span class="pr">£9.20</span><p>Roasted peppers, rocket, herb yoghurt.</p></div>
+   <div class="item"><h3>Granola Bowl</h3><span class="pr">£6.80</span><p>House granola, Greek yoghurt, stewed fruit.</p></div>
+   <div class="item"><h3>Soup &amp; Toastie</h3><span class="pr">£8.50</span><p>Soup of the day with a cheddar and chutney toastie.</p></div>
+  </div>
+  <div class="panel" id="n" role="tabpanel">
+   <div class="item"><h3>Iced Latte</h3><span class="pr">£4.50</span><p>Double espresso and cold milk poured over ice.</p></div>
+   <div class="item"><h3>Iced Matcha Latte</h3><span class="pr">£4.90</span><p>Ceremonial matcha, oat milk and a touch of vanilla.</p></div>
+   <div class="item"><h3>Cold Brew</h3><span class="pr">£4.20</span><p>Steeped for 18 hours. Smooth, sweet and low in acidity.</p></div>
+   <div class="item"><h3>Fresh Lemonade</h3><span class="pr">£3.90</span><p>Pressed lemon, mint and sparkling water.</p></div>
+   <div class="item"><h3>Berry Smoothie</h3><span class="pr">£5.20</span><p>Strawberry, banana and Greek yoghurt, blended to order.</p></div>
+  </div>
+  </div></div>
+  <p class="menu-note">Tap any item to see it up close. Please tell us about any allergies. Prices are placeholders; edit them in index.html.</p>
+ </div>
+</section>
+
+<section class="story" id="story">
+ <div class="wrap">
+  <div class="photo" role="img" aria-label="Illustration of a café window">
+   <!-- Replace with a photo of your space -->
+   <svg viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice">
+    <rect width="400" height="500" fill="#EADFCB"/>
+    <rect x="70" y="70" width="260" height="330" rx="130" fill="#1F3A2E"/>
+    <rect x="92" y="92" width="216" height="286" rx="108" fill="#F6F0E4"/>
+    <path d="M200 92v286M92 235h216" stroke="#1F3A2E" stroke-width="6"/>
+    <rect x="130" y="400" width="140" height="14" fill="#B8552F"/>
+    <path d="M150 400c0-34 12-52 50-52s50 18 50 52z" fill="#B8552F" opacity=".25"/>
+    <circle cx="260" cy="150" r="18" fill="#B8552F" opacity=".5"/>
+   </svg>
+  </div>
+  <div>
+   <p class="label">Our story</p>
+   <h2>Born from one simple idea: every neighbourhood needs a living room.</h2>
+   <p>The Common began as a small espresso bar on a quiet corner, opened by two friends who wanted somewhere to linger. No rush, no hustle, only good coffee and warm company.</p>
+   <p>Today we work with roasters who pay farmers fairly, bake in-house every morning, and keep a seat free for whoever walks in next. We are proudly independent, and we like it that way.</p>
+   <p class="sign">With warmth, the team at The Common</p>
+  </div>
+ </div>
+</section>
+
+<section class="quote">
+ <div class="wrap">
+  <blockquote>The best cafés don't just serve coffee. They give a street its heartbeat.</blockquote>
+  <cite>Our philosophy</cite>
+ </div>
+</section>
+
+<section id="gallery">
+ <div class="wrap">
+  <div class="gal-head">
+   <div><p class="label">Gallery</p><h2 style="margin-top:14px">A look inside</h2></div>
+   <a href="#instagram" class="btn sec">Follow along</a>
+  </div>
+  <!-- Swap each SVG for <img src="images/name.jpg" alt="..." style="width:100%;height:100%;object-fit:cover"> -->
+  <div class="grid">
+   <div class="g g1"><svg viewBox="0 0 100 100" preserveAspectRatio="xMidYMid slice"><rect width="100" height="100" fill="#1F3A2E"/><circle cx="50" cy="52" r="30" fill="#F6F0E4"/><circle cx="50" cy="52" r="23" fill="#B8552F"/><circle cx="50" cy="52" r="18" fill="#7a3b22"/></svg><span>Morning pour</span></div>
+   <div class="g g2"><svg viewBox="0 0 100 60" preserveAspectRatio="xMidYMid slice"><rect width="100" height="60" fill="#B8552F"/><path d="M0 60 50 10l50 50z" fill="#d8744d"/><circle cx="76" cy="18" r="8" fill="#F6F0E4"/></svg><span>Fresh bakes</span></div>
+   <div class="g g3"><svg viewBox="0 0 60 60" preserveAspectRatio="xMidYMid slice"><rect width="60" height="60" fill="#EADFCB"/><rect x="14" y="14" width="32" height="32" rx="16" fill="#1F3A2E"/></svg><span>The corner table</span></div>
+   <div class="g g4"><svg viewBox="0 0 60 60" preserveAspectRatio="xMidYMid slice"><rect width="60" height="60" fill="#2c4d3d"/><path d="M10 50 30 10l20 40z" fill="#EADFCB"/></svg><span>Beans</span></div>
+   <div class="g g5"><svg viewBox="0 0 100 60" preserveAspectRatio="xMidYMid slice"><rect width="100" height="60" fill="#1A1714"/><circle cx="30" cy="30" r="18" fill="#B8552F"/><circle cx="64" cy="30" r="18" fill="#F6F0E4"/></svg><span>Evening light</span></div>
+   <div class="g g6"><svg viewBox="0 0 100 60" preserveAspectRatio="xMidYMid slice"><rect width="100" height="60" fill="#EADFCB"/><rect x="0" y="40" width="100" height="20" fill="#1F3A2E"/><circle cx="50" cy="40" r="22" fill="#B8552F"/></svg><span>Sunday slow</span></div>
+  </div>
+ </div>
+</section>
+
+<section class="reviews">
+ <div class="wrap">
+  <p class="label">What people say</p>
+  <h2 style="margin-top:14px">Loved by the neighbourhood</h2>
+  <div class="rows">
+   <div class="rev"><div class="stars">★★★★★</div><p>"The best flat white I've had outside of Melbourne. And the cardamom bun is dangerous."</p><small>Amelia R. · Regular</small></div>
+   <div class="rev"><div class="stars">★★★★★</div><p>"Warm, calm and beautifully run. I work from here two mornings a week and never want to leave."</p><small>Daniel K. · Freelancer</small></div>
+   <div class="rev"><div class="stars">★★★★★</div><p>"It feels like someone's very stylish home. Our dog gets a treat before we've even ordered."</p><small>Priya &amp; Max · Weekend visitors</small></div>
+  </div>
+ </div>
+</section>
+
+<section class="visit" id="visit">
+ <div class="wrap">
+  <div>
+   <p class="label">Visit</p>
+   <h2>Pull up a chair.</h2>
+   <address>14 Mercer Lane<br>Old Town, London EC2 4AB</address>
+   <ul class="hours">
+    <li><b>Monday – Friday</b><span>7:30 – 17:00</span></li>
+    <li><b>Saturday</b><span>8:00 – 17:30</span></li>
+    <li><b>Sunday</b><span>9:00 – 16:00</span></li>
+   </ul>
+   <div class="cta"><a href="https://maps.google.com/?q=14+Mercer+Lane+London" class="btn pri" target="_blank" rel="noopener">Get directions</a></div>
+   <div class="links"><a href="mailto:hello@thecommon.example">hello@thecommon.example</a><a href="tel:+442000000000">020 0000 0000</a></div>
+  </div>
+  <div class="map" role="img" aria-label="Stylised map showing the café location">
+   <!-- Swap for a Google Maps iframe embed when ready -->
+   <svg viewBox="0 0 400 400" preserveAspectRatio="xMidYMid slice"><rect width="400" height="400" fill="#EADFCB"/><g stroke="#F6F0E4" stroke-width="14" fill="none"><path d="M-10 120 410 150"/><path d="M110-10 150 410"/><path d="M-10 300 410 260"/><path d="M290-10 250 410"/></g><g stroke="#F6F0E4" stroke-width="5" fill="none"><path d="M-10 210 410 205"/><path d="M200-10 205 410"/></g><rect x="300" y="300" width="80" height="70" fill="#c7d2b8"/><rect x="20" y="20" width="70" height="80" fill="#c7d2b8"/></svg>
+   <div class="pin">THE COMMON</div>
+  </div>
+ </div>
+</section>
+
+<section class="insta" id="instagram">
+ <div class="wrap">
+  <div class="top"><p class="label">Instagram</p><h2>@thecommonespresso</h2></div>
+  <div class="ig">
+   <a href="#" aria-label="Instagram post 1"><svg viewBox="0 0 10 10"><rect width="10" height="10" fill="#1F3A2E"/><circle cx="5" cy="5" r="3" fill="#B8552F"/></svg></a>
+   <a href="#" aria-label="Instagram post 2"><svg viewBox="0 0 10 10"><rect width="10" height="10" fill="#EADFCB"/><path d="M2 8 5 2l3 6z" fill="#B8552F"/></svg></a>
+   <a href="#" aria-label="Instagram post 3"><svg viewBox="0 0 10 10"><rect width="10" height="10" fill="#B8552F"/><circle cx="5" cy="5" r="3" fill="#F6F0E4"/></svg></a>
+   <a href="#" aria-label="Instagram post 4"><svg viewBox="0 0 10 10"><rect width="10" height="10" fill="#1A1714"/><rect x="2.5" y="2.5" width="5" height="5" rx="2.5" fill="#EADFCB"/></svg></a>
+   <a href="#" aria-label="Instagram post 5"><svg viewBox="0 0 10 10"><rect width="10" height="10" fill="#2c4d3d"/><circle cx="5" cy="5" r="3" fill="#F6F0E4"/><circle cx="5" cy="5" r="1.6" fill="#7a3b22"/></svg></a>
+   <a href="#" aria-label="Instagram post 6"><svg viewBox="0 0 10 10"><rect width="10" height="10" fill="#F0D9C2"/><rect y="6" width="10" height="4" fill="#1F3A2E"/><circle cx="5" cy="6" r="2.4" fill="#B8552F"/></svg></a>
+  </div>
+ </div>
+</section>
+</main>
+
+<footer>
+ <div class="foot">
+  <div><span class="logo">THE COMMON</span><p>The Common Espresso Bar<br>Coffee · Community · Comfort</p></div>
+  <div><h4>Explore</h4><ul><li><a href="#menu">Menu</a></li><li><a href="#story">Our Story</a></li><li><a href="#gallery">Gallery</a></li><li><a href="#visit">Visit</a></li></ul></div>
+  <div><h4>Contact</h4><ul><li><a href="mailto:hello@thecommon.example">Email us</a></li><li><a href="tel:+442000000000">020 0000 0000</a></li><li><a href="#visit">14 Mercer Lane</a></li></ul></div>
+  <div><h4>Follow</h4><ul><li><a href="#instagram">Instagram</a></li><li><a href="#">TikTok</a></li><li><a href="#">Facebook</a></li></ul></div>
+ </div>
+ <div class="copy"><span>© 2026 The Common Espresso Bar. All rights reserved.</span><span>Independent. Neighbourly. Brewed with care.</span></div>
+</footer>
+
+<div class="modal" id="modal" role="dialog" aria-modal="true" aria-label="Preview"><div class="mbox"><button class="mx" id="mx" aria-label="Close">&times;</button><div class="mimg" id="mimg"></div><div class="mtxt" id="mtxt"></div></div></div>
+<script>
+const b=document.getElementById('burger'),n=document.getElementById('nav');
+b.addEventListener('click',()=>{const o=n.classList.toggle('open');b.setAttribute('aria-expanded',o)});
+n.querySelectorAll('a').forEach(a=>a.addEventListener('click',()=>{n.classList.remove('open');b.setAttribute('aria-expanded',false)}));
+/* Gallery photos: add images/gallery-1.jpg ... gallery-6.jpg and they replace the placeholders automatically */
+document.querySelectorAll('.g').forEach((g,i)=>{
+ const im=new Image();im.alt=(g.querySelector('span')||{}).textContent||'The Common café';
+ im.style.cssText='width:100%;height:100%;object-fit:cover;display:block;transition:transform .8s';im.loading='lazy';
+ im.onload=()=>{g.querySelector('svg').replaceWith(im)};
+ im.src='images/gallery-'+(i+1)+'.jpg';
+});
+document.querySelectorAll('.tabs button').forEach(t=>t.addEventListener('click',()=>{
+ document.querySelectorAll('.tabs button').forEach(x=>x.setAttribute('aria-selected',x===t));
+ document.querySelectorAll('.panel').forEach(p=>p.classList.toggle('on',p.id===t.dataset.t));
+ document.querySelectorAll('.art').forEach(a=>a.classList.toggle('on',a.dataset.t===t.dataset.t));
+}));
+
+/* click-to-view: menu items and gallery tiles */
+const md=document.getElementById('modal'),mi=document.getElementById('mimg'),mt=document.getElementById('mtxt');let last;
+const esc=t=>t.replace(/[&<>]/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;'}[c]));
+function openM(img,html){mi.replaceChildren(img);mt.innerHTML=html;last=document.activeElement;md.classList.add('open');document.body.style.overflow='hidden';document.getElementById('mx').focus()}
+function closeM(){md.classList.remove('open');document.body.style.overflow='';if(last)last.focus()}
+document.getElementById('mx').onclick=closeM;md.addEventListener('click',e=>{if(e.target===md||e.target.closest('a'))closeM()});
+addEventListener('keydown',e=>{if(e.key==='Escape')closeM()});
+const tags={c:'Coffee',b:'Bakery',k:'Brunch',n:'Cold Drinks'},pal=['#1F3A2E','#B8552F','#2c4d3d','#7a3b22','#1A1714'];
+document.querySelectorAll('.item').forEach(it=>{
+ it.tabIndex=0;it.setAttribute('role','button');
+ const show=()=>{
+  const id=it.closest('.panel').id,name=it.querySelector('h3').textContent,h=[...name].reduce((a,c)=>a+c.charCodeAt(0),0);
+  let svg=document.querySelector('.art[data-t="'+id+'"]').cloneNode(true);svg.setAttribute('class','');
+  const bg=svg.querySelector('rect');bg.setAttribute('fill',pal[h%pal.length]);
+  let box=svg;
+  if(id==='b'&&/brownie|cake|tart/i.test(name)){box=document.createElementNS('http://www.w3.org/2000/svg','svg');box.setAttribute('viewBox','0 0 300 375');
+   box.innerHTML='<rect width="300" height="375" fill="'+pal[h%pal.length]+'"/><ellipse cx="150" cy="300" rx="90" ry="12" fill="#000" opacity=".2"/><g class="float"><path d="M70 150h160l12 120H58z" fill="#5a3320"/><path d="M62 150h176l-6 34H68z" fill="#F6F0E4"/><path d="M58 222h184l-4 48H62z" fill="#3b2012"/><circle cx="110" cy="132" r="10" fill="#B8552F"/><circle cx="150" cy="124" r="10" fill="#B8552F"/><circle cx="190" cy="132" r="10" fill="#B8552F"/></g>'}
+  const real=new Image();real.alt=name;real.onload=()=>{mi.replaceChildren(real)};
+  real.src='images/menu/'+name.toLowerCase().replace(/[^a-z0-9]+/g,'-').replace(/^-|-$/g,'')+'.jpg';
+  openM(box,'<p class="label">'+tags[id]+'</p><h3>'+esc(name)+'</h3><div class="mp">'+it.querySelector('.pr').textContent+'</div><p>'+esc(it.querySelector('p').textContent)+'</p><a href="#visit" class="btn pri">Come and try it</a>');
+ };
+ it.onclick=show;it.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();show()}};
+});
+const gd={'Morning pour':'The first pour of the day, from 7:30am. Quiet, warm and unhurried.','Fresh bakes':'Croissants, buns and cakes baked in-house every morning.','The corner table':'Our favourite seat in the house. Soft light, deep chairs, no rush.','Beans':'Small-batch roasted single origins, ground fresh for every cup.','Evening light':'The room glows as the day winds down. Come and stay a while.','Sunday slow':'Long breakfasts, good company and a second coffee.'};
+document.querySelectorAll('.g').forEach(g=>{
+ g.tabIndex=0;g.setAttribute('role','button');
+ const open=()=>{const cap=g.querySelector('span').textContent,m=g.querySelector('svg,img').cloneNode(true);m.style.transform='none';
+  openM(m,'<p class="label">Gallery</p><h3>'+esc(cap)+'</h3><p>'+(gd[cap]||'')+'</p><a href="#visit" class="btn pri">Visit us</a>')};
+ g.onclick=open;g.onkeydown=e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();open()}};
+});
+</script>
+</body>
+</html>
